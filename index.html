@@ -29,7 +29,7 @@ a{color:inherit}
 .serif{font-family:"Playfair Display",Georgia,serif}
 
 /* nav */
-header{position:sticky;top:0;z-index:10;background:rgba(13,12,11,.82);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+header{position:sticky;top:0;z-index:10;background:rgba(13,12,11,.95);border-bottom:1px solid transparent;transition:border-color .2s}
 header.s{border-color:var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.06em;font-size:15px;text-decoration:none}
@@ -235,19 +235,19 @@ footer a{text-decoration:none}footer nav{align-items:center}.yt{display:inline-f
 /* fancy layer */
 #prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:20;background:linear-gradient(90deg,var(--or),var(--gold));box-shadow:0 0 12px rgba(245,130,20,.7)}
 .orbs{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-.orbs i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:orb 18s ease-in-out infinite alternate}
-.orbs i:nth-child(1){width:420px;height:420px;background:#f58214;top:-120px;right:8%}
-.orbs i:nth-child(2){width:340px;height:340px;background:#ffb83c;bottom:-160px;left:-80px;opacity:.28;animation-duration:22s}
-.orbs i:nth-child(3){width:260px;height:260px;background:#b4431c;top:30%;left:42%;opacity:.3;animation-duration:26s}
+.orbs i{position:absolute;border-radius:50%;opacity:.55;animation:orb 18s ease-in-out infinite alternate;will-change:transform}
+.orbs i:nth-child(1){width:760px;height:760px;background:radial-gradient(circle,rgba(245,130,20,.75),rgba(245,130,20,0) 65%);top:-300px;right:-4%}
+.orbs i:nth-child(2){width:620px;height:620px;background:radial-gradient(circle,rgba(255,184,60,.6),rgba(255,184,60,0) 65%);bottom:-320px;left:-240px;opacity:.28;animation-duration:22s}
+.orbs i:nth-child(3){width:480px;height:480px;background:radial-gradient(circle,rgba(180,67,28,.7),rgba(180,67,28,0) 65%);top:15%;left:32%;opacity:.3;animation-duration:26s}
 @keyframes orb{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-60px,40px) scale(1.15)}100%{transform:translate(40px,-30px) scale(.95)}}
 .hero:before{display:none}
 h1 .wd{display:inline-block;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
 h1 .wd:nth-of-type(2){animation-delay:.08s}h1 .wd:nth-of-type(3){animation-delay:.16s}
-h1 em .wd:nth-of-type(1){animation-delay:.3s,0s}h1 em .wd:nth-of-type(2){animation-delay:.38s,0s}h1 em .wd:nth-of-type(3){animation-delay:.46s,0s}
+h1 em .wd:nth-of-type(1){animation-delay:.3s}h1 em .wd:nth-of-type(2){animation-delay:.38s}h1 em .wd:nth-of-type(3){animation-delay:.46s}
 @keyframes rise{from{opacity:0;transform:translateY(40%);filter:blur(6px)}}
-h1 em .wd{background:linear-gradient(90deg,var(--or),var(--gold),var(--or));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:rise .9s cubic-bezier(.2,.8,.2,1) both,shift 6s linear infinite}
+h1 em .wd{background:linear-gradient(90deg,var(--or),var(--gold),var(--or));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
 @keyframes shift{to{background-position:200% 0}}
-.phone .ring{position:absolute;inset:-18px;border-radius:56px;background:conic-gradient(from var(--a,0deg),transparent 0 70%,rgba(255,184,60,.9) 85%,transparent 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:2px;animation:spin 6s linear infinite;pointer-events:none}
+.phone .ring{position:absolute;inset:-18px;border-radius:56px;background:conic-gradient(from var(--a,0deg),transparent 0 70%,rgba(255,184,60,.9) 85%,transparent 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:2px;pointer-events:none;--a:200deg}
 @property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
 @keyframes spin{to{--a:360deg}}
 .marq{border-block:1px solid var(--line);overflow:hidden;padding:18px 0;background:var(--bg)}
@@ -262,15 +262,15 @@ h1 em .wd{background:linear-gradient(90deg,var(--or),var(--gold),var(--or));-web
 .btn{position:relative;overflow:hidden}
 .btn:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .6s}
 .btn:hover:after{left:130%}
-.btn:not(.ghost):not(.sm){box-shadow:0 10px 30px -8px rgba(245,130,20,.7);animation:pulse 3s ease-in-out infinite}
+.btn:not(.ghost):not(.sm){box-shadow:0 10px 34px -8px rgba(245,130,20,.8)}
 @keyframes pulse{50%{box-shadow:0 10px 44px -4px rgba(245,130,20,.95)}}
 .step{transition:border-color .4s,box-shadow .4s;animation:stepglow 5s infinite}
 .step:nth-child(2){animation-delay:1s}.step:nth-child(3){animation-delay:2s}.step:nth-child(4){animation-delay:3s}.step:nth-child(5){animation-delay:4s}
-@keyframes stepglow{0%,22%,100%{border-color:var(--line);box-shadow:none}8%,14%{border-color:var(--or);box-shadow:0 0 0 1px var(--or),0 12px 40px -12px rgba(245,130,20,.8)}}
+@keyframes stepglow{0%,22%,100%{border-color:var(--line);background:var(--card)}8%,14%{border-color:var(--or);box-shadow:none;background:#2a1d10}}
 details[open] p{animation:fadein .4s ease}
 @keyframes fadein{from{opacity:0;transform:translateY(-6px)}}
 .final{position:relative;overflow:hidden;isolation:isolate}
-.final:before{content:"";position:absolute;width:720px;height:720px;left:50%;top:50%;margin:-360px 0 0 -360px;z-index:-1;border-radius:50%;background:conic-gradient(from 0deg,rgba(245,130,20,.0),rgba(245,130,20,.35),rgba(255,184,60,.0),rgba(180,67,28,.3),rgba(245,130,20,0));filter:blur(60px);animation:rot 16s linear infinite}
+.final:before{content:"";position:absolute;width:720px;height:720px;left:50%;top:50%;margin:-360px 0 0 -360px;z-index:-1;border-radius:50%;background:conic-gradient(from 0deg,rgba(245,130,20,.0),rgba(245,130,20,.35),rgba(255,184,60,.0),rgba(180,67,28,.3),rgba(245,130,20,0));animation:rot 16s linear infinite;will-change:transform;-webkit-mask:radial-gradient(circle,#000 30%,transparent 70%);mask:radial-gradient(circle,#000 30%,transparent 70%)}
 @keyframes rot{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.orbs i,h1 .wd,.phone .ring,.mt,.step,.btn,.final:before{animation:none!important}}
 @media (max-width:900px){.demos{grid-template-columns:1fr 1fr}.w3{grid-template-columns:1fr}.fly{aspect-ratio:16/9;min-height:0}}
@@ -644,17 +644,17 @@ demoRuns['d-voice']=(()=>{
   ];
   const btn=document.getElementById('vbtn'),au=new Audio();au.preload='none';
   let speaking=false,sound=false,gen=0;
-  const anim=()=>{bars.forEach((b,i)=>{b.style.height=speaking?(15+Math.abs(Math.sin(Date.now()/140+i*.55))*70*Math.random()+10)+'%':'6%'});requestAnimationFrame(anim)};
-  if(!RM)requestAnimationFrame(anim);
+  let animOn=false;const anim=()=>{if(!speaking){bars.forEach(b=>b.style.height='6%');animOn=false;return}bars.forEach((b,i)=>{b.style.height=(15+Math.abs(Math.sin(Date.now()/140+i*.55))*70*Math.random()+10)+'%'});requestAnimationFrame(anim)};
+  const wake=()=>{if(!animOn&&!RM){animOn=true;requestAnimationFrame(anim)}};
   const show=ln=>{langs.forEach((s,i)=>s.classList.toggle('on',i===ln.l));cap.dir=ln.rtl?'rtl':'ltr';cap.innerHTML=ln.w.map(x=>`<span>${x[0]}</span>`).join(' ');return [...cap.children]};
   const playLine=(ln,my)=>new Promise(res=>{
-    const ws=show(ln);au.src=ln.src;speaking=true;
+    const ws=show(ln);au.src=ln.src;speaking=true;wake();
     const tick=()=>{if(my!==gen){speaking=false;return res()}ln.w.forEach((x,i)=>ws[i].classList.toggle('on',au.currentTime>=x[1]));if(!au.ended)requestAnimationFrame(tick)};
     au.onended=()=>{speaking=false;ws.forEach(w=>w.classList.add('on'));res()};
     au.onerror=()=>{speaking=false;res()};
     au.play().then(()=>requestAnimationFrame(tick)).catch(()=>{speaking=false;res()});
   });
-  const silentLine=async(ln,my)=>{const ws=show(ln);speaking=true;for(let i=0;i<ws.length;i++){const next=ln.w[i+1]?ln.w[i+1][1]:ln.w[i][1]+.5;ws[i].classList.add('on');await wait((next-ln.w[i][1])*1000);if(my!==gen){speaking=false;return}}speaking=false};
+  const silentLine=async(ln,my)=>{const ws=show(ln);speaking=true;wake();for(let i=0;i<ws.length;i++){const next=ln.w[i+1]?ln.w[i+1][1]:ln.w[i][1]+.5;ws[i].classList.add('on');await wait((next-ln.w[i][1])*1000);if(my!==gen){speaking=false;return}}speaking=false};
   async function run(){
     const my=++gen;
     langs.forEach(s=>s.classList.remove('on'));sls.forEach(s=>s.style.width='0');ready.classList.remove('on');chk.classList.remove('on');cap.textContent='';

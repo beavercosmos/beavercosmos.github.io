@@ -21,9 +21,11 @@
   const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let w = 0, h = 0, dpr = 1, running = false, camAlt = null, t0 = performance.now();
   const stars = Array.from({ length: 70 }, () => [Math.random(), Math.random() * .34, Math.random() * .8 + .2]);
-  function size() { dpr = Math.min(devicePixelRatio || 1, 1.5); const r = cv.getBoundingClientRect(); w = cv.width = Math.round(r.width * dpr); h = cv.height = Math.round(r.height * dpr); }
-  const LOOP = 26000, ROWS = 60, COLS = 96;
+  function size() { dpr = Math.min(devicePixelRatio || 1, 1.25); const r = cv.getBoundingClientRect(); w = cv.width = Math.round(r.width * dpr); h = cv.height = Math.round(r.height * dpr); }
+  const LOOP = 26000, ROWS = 46, COLS = 80; let last = 0;
   function frame(now) {
+    if (running && !RM && now - last < 32) { requestAnimationFrame(frame); return; }
+    last = now;
     if (!w) size();
     const k = RM ? .35 : ((now - t0) % LOOP) / LOOP;
     const s = k * len * .92, P = [G[0] + dir[0] * s, G[1] + dir[1] * s];
@@ -55,7 +57,7 @@
       ctx.beginPath(); ctx.moveTo(pts[0], pts[1]);
       for (let j = 1; j < COLS; j++) ctx.lineTo(pts[j * 2], pts[j * 2 + 1]);
       const near = 1 - i / ROWS;
-      if (i < 14) { ctx.globalAlpha = .18 * near; ctx.lineWidth = 5 * dpr; ctx.strokeStyle = '#f58214'; ctx.stroke(); }
+      if (i < 10) { ctx.globalAlpha = .18 * near; ctx.lineWidth = 5 * dpr; ctx.strokeStyle = '#f58214'; ctx.stroke(); }
       ctx.globalAlpha = .2 + .8 * near; ctx.lineWidth = (.7 + near * 1.1) * dpr; ctx.strokeStyle = line; ctx.stroke();
       ctx.globalAlpha = 1;
     }
