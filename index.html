@@ -473,11 +473,11 @@ details[open] p{animation:fadein .4s ease}
   <h2>Product shots and scenes, built in 3D.</h2>
   <p class="sub">No studio, no photo shoot. Any angle, any light, any background, and the same product in every ad.</p>
   <div class="w3">
-    <figure class="s1"><div class="tilt" id="tilt" data-turn="0">
-        <div class="tilt-in"><img src="work-serum.jpg" alt="3D render of an amber serum bottle with a dropper on a stone plinth" loading="lazy" width="720" height="1280"><span class="sheen"></span><span class="sweep"></span></div>
+    <figure class="s1"><div class="tilt" id="tilt" data-turn="1">
+        <div class="tilt-in"><img src="turn/turn-12.jpg" alt="3D render of an amber serum bottle with a dropper on a stone plinth" loading="lazy" width="720" height="1280"><span class="sheen"></span><span class="sweep"></span></div>
         <span class="fchip c1">Any angle</span><span class="fchip c2">Studio light</span><span class="fchip c3">Any background</span>
       </div>
-      <figcaption><b>Product shot</b>Concept render of a skincare serum, made in 3D, not photographed. Move your mouse over it.</figcaption></figure>
+      <figcaption><b>Product shot</b>Concept render of a skincare serum, made in 3D, not photographed. Move your mouse across it to turn the bottle.</figcaption></figure>
     <figure class="s2"><div class="fly">
         <canvas id="terr" aria-label="Animated flight over real mountain terrain from Gilgit to Bunji"></canvas>
         <div class="hud">
@@ -627,7 +627,7 @@ const tsrc=i=>`turn/turn-${String(i).padStart(2,'0')}.jpg`;
 const tload=()=>{if(tloaded)return;tloaded=true;for(let i=0;i<TN;i++){const im=new Image();im.src=tsrc(i);tframes.push(im)}};
 const tshow=i=>{i=Math.max(0,Math.min(TN-1,Math.round(i)));if(i!==tcur){tcur=i;timg.src=tsrc(i)}};
 if(TURN)new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)tload()}),{rootMargin:'300px'}).observe(tilt);
-tilt.addEventListener('pointermove',e=>{if(RM)return;thover=true;const r=tilt.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;if(TURN){tshow((1-x)*(TN-1));tin.style.transform=`rotateX(${(.5-y)*6}deg)`}else tin.style.transform=`rotateY(${(x-.5)*14}deg) rotateX(${(.5-y)*10}deg)`;tin.style.setProperty('--mx',x*100+'%');tin.style.setProperty('--my',y*100+'%')});
+tilt.addEventListener('pointermove',e=>{if(RM)return;thover=true;const r=tilt.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;if(TURN){tshow(x*(TN-1));tin.style.transform=`rotateX(${(.5-y)*6}deg)`}else tin.style.transform=`rotateY(${(x-.5)*14}deg) rotateX(${(.5-y)*10}deg)`;tin.style.setProperty('--mx',x*100+'%');tin.style.setProperty('--my',y*100+'%')});
 tilt.addEventListener('pointerleave',()=>{thover=false;tin.style.transform=''});
 if(!RM)setInterval(()=>{if(thover||!tloaded)return;let n=tcur+tdir;if(n<=0||n>=TN-1)tdir=-tdir;tshow(n)},140);
 /* voice demo */
