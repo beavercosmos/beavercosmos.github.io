@@ -231,6 +231,48 @@ footer a{text-decoration:none}footer nav{align-items:center}.yt{display:inline-f
 @media (max-width:640px){.vstage{grid-template-columns:1fr}}
 .tilt{aspect-ratio:4/5}
 .fly{min-height:240px}
+
+/* fancy layer */
+#prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:20;background:linear-gradient(90deg,var(--or),var(--gold));box-shadow:0 0 12px rgba(245,130,20,.7)}
+.orbs{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.orbs i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:orb 18s ease-in-out infinite alternate}
+.orbs i:nth-child(1){width:420px;height:420px;background:#f58214;top:-120px;right:8%}
+.orbs i:nth-child(2){width:340px;height:340px;background:#ffb83c;bottom:-160px;left:-80px;opacity:.28;animation-duration:22s}
+.orbs i:nth-child(3){width:260px;height:260px;background:#b4431c;top:30%;left:42%;opacity:.3;animation-duration:26s}
+@keyframes orb{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-60px,40px) scale(1.15)}100%{transform:translate(40px,-30px) scale(.95)}}
+.hero:before{display:none}
+h1 .wd{display:inline-block;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+h1 .wd:nth-of-type(2){animation-delay:.08s}h1 .wd:nth-of-type(3){animation-delay:.16s}
+h1 em .wd:nth-of-type(1){animation-delay:.3s,0s}h1 em .wd:nth-of-type(2){animation-delay:.38s,0s}h1 em .wd:nth-of-type(3){animation-delay:.46s,0s}
+@keyframes rise{from{opacity:0;transform:translateY(40%);filter:blur(6px)}}
+h1 em .wd{background:linear-gradient(90deg,var(--or),var(--gold),var(--or));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:rise .9s cubic-bezier(.2,.8,.2,1) both,shift 6s linear infinite}
+@keyframes shift{to{background-position:200% 0}}
+.phone .ring{position:absolute;inset:-18px;border-radius:56px;background:conic-gradient(from var(--a,0deg),transparent 0 70%,rgba(255,184,60,.9) 85%,transparent 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:2px;animation:spin 6s linear infinite;pointer-events:none}
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+.marq{border-block:1px solid var(--line);overflow:hidden;padding:18px 0;background:var(--bg)}
+.mt{display:flex;gap:28px;width:max-content;animation:marq 40s linear infinite;font-weight:700;font-size:18px;letter-spacing:.02em}
+.mt span{white-space:nowrap}.mt b{color:var(--or);font-weight:400}
+@keyframes marq{to{transform:translateX(-50%)}}
+.ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;color:var(--or);background:linear-gradient(145deg,rgba(245,130,20,.16),rgba(245,130,20,.04));border:1px solid rgba(245,130,20,.32);box-shadow:0 8px 24px -12px rgba(245,130,20,.6);transition:transform .3s,box-shadow .3s}
+.card:hover .ic{transform:translateY(-3px) rotate(-4deg);box-shadow:0 14px 30px -10px rgba(245,130,20,.8)}
+.card,.demo{transition:border-color .3s,transform .3s,background .3s}
+.card:hover,.demo:hover{border-color:rgba(245,130,20,.45);background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(245,130,20,.13),transparent 45%),var(--card)}
+.card:hover{transform:translateY(-4px)}
+.btn{position:relative;overflow:hidden}
+.btn:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .6s}
+.btn:hover:after{left:130%}
+.btn:not(.ghost):not(.sm){box-shadow:0 10px 30px -8px rgba(245,130,20,.7);animation:pulse 3s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 10px 44px -4px rgba(245,130,20,.95)}}
+.step{transition:border-color .4s,box-shadow .4s;animation:stepglow 5s infinite}
+.step:nth-child(2){animation-delay:1s}.step:nth-child(3){animation-delay:2s}.step:nth-child(4){animation-delay:3s}.step:nth-child(5){animation-delay:4s}
+@keyframes stepglow{0%,22%,100%{border-color:var(--line);box-shadow:none}8%,14%{border-color:var(--or);box-shadow:0 0 0 1px var(--or),0 12px 40px -12px rgba(245,130,20,.8)}}
+details[open] p{animation:fadein .4s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(-6px)}}
+.final{position:relative;overflow:hidden;isolation:isolate}
+.final:before{content:"";position:absolute;width:720px;height:720px;left:50%;top:50%;margin:-360px 0 0 -360px;z-index:-1;border-radius:50%;background:conic-gradient(from 0deg,rgba(245,130,20,.0),rgba(245,130,20,.35),rgba(255,184,60,.0),rgba(180,67,28,.3),rgba(245,130,20,0));filter:blur(60px);animation:rot 16s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.orbs i,h1 .wd,.phone .ring,.mt,.step,.btn,.final:before{animation:none!important}}
 @media (max-width:900px){.demos{grid-template-columns:1fr 1fr}.w3{grid-template-columns:1fr}.fly{aspect-ratio:16/9;min-height:0}}
 @media (max-width:640px){.demos{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.wave i,.typing i{animation:none}}
@@ -257,6 +299,7 @@ footer a{text-decoration:none}footer nav{align-items:center}.yt{display:inline-f
 </head>
 <body>
 
+<div id="prog" aria-hidden="true"></div>
 <header id="top"><div class="w nav">
   <a class="logo" href="#top"><i>B</i>BEAVER STUDIO</a>
   <nav>
@@ -268,10 +311,10 @@ footer a{text-decoration:none}footer nav{align-items:center}.yt{display:inline-f
   </nav>
 </div></header>
 
-<div class="hero"><div class="w hg">
+<div class="hero"><div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div><div class="w hg">
   <div>
     <span class="eyebrow">Video ads · Meta ads · WhatsApp sales</span>
-    <h1>From the ad<br><em>to the order.</em></h1>
+    <h1><span class="wd">From</span> <span class="wd">the</span> <span class="wd">ad</span><br><em><span class="wd">to</span> <span class="wd">the</span> <span class="wd">order.</span></em></h1>
     <p class="lead">We make video ads that look and sound real, run them on Facebook and Instagram, and answer your buyers on WhatsApp day and night. Then we show you exactly what sold.</p>
     <div class="ctas">
       <a class="btn" href="mailto:cosmosbeaver@gmail.com?subject=Free%20consultation">Book a free consultation →</a>
@@ -284,7 +327,7 @@ footer a{text-decoration:none}footer nav{align-items:center}.yt{display:inline-f
     </div>
   </div>
   <div>
-    <div class="phone">
+    <div class="phone"><span class="ring" aria-hidden="true"></span>
       <video id="v" src="sample.mp4" poster="sample-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
       <button class="snd" id="snd" type="button">🔊 Tap for sound</button>
     </div>
@@ -292,23 +335,25 @@ footer a{text-decoration:none}footer nav{align-items:center}.yt{display:inline-f
   </div>
 </div></div>
 
+<div class="marq" aria-hidden="true"><div class="mt"><span>Video ads</span><b>✦</b><span>Brand voices</span><b>✦</b><span>Voice agents</span><b>✦</b><span>WhatsApp sales</span><b>✦</b><span>Comment to order</span><b>✦</b><span>Meta ads</span><b>✦</b><span>Retargeting</span><b>✦</b><span>3D product shots</span><b>✦</b><span>Dubbing</span><b>✦</b><span>Content calendars</span><b>✦</b><span>Monthly reports</span><b>✦</b><span>Video ads</span><b>✦</b><span>Brand voices</span><b>✦</b><span>Voice agents</span><b>✦</b><span>WhatsApp sales</span><b>✦</b><span>Comment to order</span><b>✦</b><span>Meta ads</span><b>✦</b><span>Retargeting</span><b>✦</b><span>3D product shots</span><b>✦</b><span>Dubbing</span><b>✦</b><span>Content calendars</span><b>✦</b><span>Monthly reports</span><b>✦</b></div></div>
+
 <section id="services" class="alt"><div class="w">
   <span class="eyebrow">Services</span>
   <h2>Everything between your product and your next order.</h2>
   <p class="sub">Take one service or the whole set. Each one works on its own, and they work best together.</p>
   <div class="grid g3">
-    <div class="card rv"><div class="ic">🎬</div><h3>Ads that stop the scroll</h3><p>Product video ads, Reels and Shorts with cinematic motion, music and your price on screen. Vertical and wide, 10 seconds to a full minute.</p></div>
-    <div class="card rv"><div class="ic">🎙️</div><h3>Voices that sound human</h3><p>Warm, natural narration in English, Urdu, Arabic and more. It sounds like a real narrator, because that's the only kind we ship.</p></div>
-    <div class="card rv"><div class="ic">💌</div><h3>Turn comments into orders</h3><p>Someone comments "price?" on your post. Seconds later they have the price and an order link in their inbox. No lost buyers, no late replies.</p></div>
-    <div class="card rv"><div class="ic">💬</div><h3>WhatsApp that sells while you sleep</h3><p>Instant answers at any hour, your products inside the chat, orders taken and confirmed, and offers sent to customers who asked for them.</p></div>
-    <div class="card rv"><div class="ic">🎯</div><h3>Ads that find real buyers</h3><p>Facebook and Instagram campaigns aimed at people likely to buy, watched every day so no budget is wasted. One tap takes them to your chat.</p></div>
-    <div class="card rv"><div class="ic">🔁</div><h3>Win back almost-buyers</h3><p>Most people don't buy the first time. We show your ad again to those who watched, messaged or visited your store, and see which ad brought each sale.</p></div>
-    <div class="card rv"><div class="ic">📥</div><h3>New leads straight to your phone</h3><p>Customers leave their details in a quick form inside Facebook or Instagram, and you get them on WhatsApp or in a sheet the same second.</p></div>
-    <div class="card rv"><div class="ic">🗓️</div><h3>Pages that never go quiet</h3><p>Page setup, a content calendar and posts that go out on time on Facebook, Instagram and YouTube, so customers always find you active.</p></div>
-    <div class="card rv"><div class="ic">📊</div><h3>A report you can read</h3><p>What you spent, how many saw it, how many messaged and how many ordered. Plain numbers, every month, no jargon.</p></div>
-    <div class="card rv"><div class="ic">📞</div><h3>Voice agents that answer calls</h3><p>A natural voice answers your phone and WhatsApp voice notes day and night, takes orders and bookings, and hands over to your team when needed.</p></div>
-    <div class="card rv"><div class="ic">🎛️</div><h3>Your brand's own voice</h3><p>We train a voice from your own recording, or design a new one that fits your brand, so every ad and every call sounds like you.</p></div>
-    <div class="card rv"><div class="ic">🌍</div><h3>One video, many languages</h3><p>Your ad dubbed into English, Urdu, Arabic and more, in the same voice, so every market hears the same brand.</p></div>
+    <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg></div><h3>Ads that stop the scroll</h3><p>Product video ads, Reels and Shorts with cinematic motion, music and your price on screen. Vertical and wide, 10 seconds to a full minute.</p></div>
+    <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"/></svg></div><h3>Voices that sound human</h3><p>Warm, natural narration in English, Urdu, Arabic and more. It sounds like a real narrator, because that's the only kind we ship.</p></div>
+    <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h7M12.5 9l3 3-3 3"/></svg></div><h3>Turn comments into orders</h3><p>Someone comments "price?" on your post. Seconds later they have the price and an order link in their inbox. No lost buyers, no late replies.</p></div>
+    <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg></div><h3>WhatsApp that sells while you sleep</h3><p>Instant answers at any hour, your products inside the chat, orders taken and confirmed, and offers sent to customers who asked for them.</p></div>
+    <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div><h3>Ads that find real buyers</h3><p>Facebook and Instagram campaigns aimed at people likely to buy, watched every day so no budget is wasted. One tap takes them to your chat.</p></div>
+    <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></svg></div><h3>Win back almost-buyers</h3><p>Most people don't buy the first time. We show your ad again to those who watched, messaged or visited your store, and see which ad brought each sale.</p></div>
+    <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13l3-8h12l3 8v6H3z"/><path d="M3 13h5l1 3h6l1-3h5"/></svg></div><h3>New leads straight to your phone</h3><p>Customers leave their details in a quick form inside Facebook or Instagram, and you get them on WhatsApp or in a sheet the same second.</p></div>
+    <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div><h3>Pages that never go quiet</h3><p>Page setup, a content calendar and posts that go out on time on Facebook, Instagram and YouTube, so customers always find you active.</p></div>
+    <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V11M10 20V5M16 20v-6M2 20h20"/></svg></div><h3>A report you can read</h3><p>What you spent, how many saw it, how many messaged and how many ordered. Plain numbers, every month, no jargon.</p></div>
+    <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div><h3>Voice agents that answer calls</h3><p>A natural voice answers your phone and WhatsApp voice notes day and night, takes orders and bookings, and hands over to your team when needed.</p></div>
+    <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg></div><h3>Your brand's own voice</h3><p>We train a voice from your own recording, or design a new one that fits your brand, so every ad and every call sounds like you.</p></div>
+    <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><h3>One video, many languages</h3><p>Your ad dubbed into English, Urdu, Arabic and more, in the same voice, so every market hears the same brand.</p></div>
   </div>
 </div></section>
 
@@ -428,7 +473,7 @@ footer a{text-decoration:none}footer nav{align-items:center}.yt{display:inline-f
   <h2>Product shots and scenes, built in 3D.</h2>
   <p class="sub">No studio, no photo shoot. Any angle, any light, any background, and the same product in every ad.</p>
   <div class="w3">
-    <figure class="s1"><div class="tilt" id="tilt">
+    <figure class="s1"><div class="tilt" id="tilt" data-turn="0">
         <div class="tilt-in"><img src="work-serum.jpg" alt="3D render of an amber serum bottle with a dropper on a stone plinth" loading="lazy" width="720" height="1280"><span class="sheen"></span><span class="sweep"></span></div>
         <span class="fchip c1">Any angle</span><span class="fchip c2">Studio light</span><span class="fchip c3">Any background</span>
       </div>
@@ -450,10 +495,10 @@ footer a{text-decoration:none}footer nav{align-items:center}.yt{display:inline-f
   <h2>Made to look real. Made to sound real.</h2>
   <p class="sub">Viewers scroll past anything that feels fake. Every ad is checked frame by frame for clean product shapes, readable text and natural movement, and every voice-over is chosen to sound like a real narrator.</p>
   <div class="grid g4">
-    <div class="card rv"><div class="ic">🔍</div><h3>Frame-checked</h3><p>No warped products, no broken text, no odd motion.</p></div>
-    <div class="card rv"><div class="ic">🗣️</div><h3>Human voices</h3><p>Natural pacing and tone, matched to your brand.</p></div>
-    <div class="card rv"><div class="ic">🎚️</div><h3>Broadcast sound</h3><p>Voice, music and levels balanced for phone speakers.</p></div>
-    <div class="card rv"><div class="ic">🏷️</div><h3>Built to sell</h3><p>Price, offer and a clear call to order in every ad.</p></div>
+    <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg></div><h3>Frame-checked</h3><p>No warped products, no broken text, no odd motion.</p></div>
+    <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></div><h3>Human voices</h3><p>Natural pacing and tone, matched to your brand.</p></div>
+    <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4v16M12 4v16M18 4v16"/><rect x="4" y="13" width="4" height="3" rx="1"/><rect x="10" y="7" width="4" height="3" rx="1"/><rect x="16" y="11" width="4" height="3" rx="1"/></svg></div><h3>Broadcast sound</h3><p>Voice, music and levels balanced for phone speakers.</p></div>
+    <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg></div><h3>Built to sell</h3><p>Price, offer and a clear call to order in every ad.</p></div>
   </div>
 </div></section>
 
@@ -570,10 +615,21 @@ const demoRuns={
     await wait(3500);if(!RM) run();
   }
 };
+
+/* fancy layer: spotlight on cards, scroll progress */
+document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.card,.demo');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')},{passive:true});
+const prog=document.getElementById('prog');addEventListener('scroll',()=>{const m=document.documentElement.scrollHeight-innerHeight;prog.style.width=(m>0?scrollY/m*100:0)+'%'},{passive:true});
 /* serum tilt follows the mouse */
 const tilt=document.getElementById('tilt'),tin=tilt.querySelector('.tilt-in');
-tilt.addEventListener('pointermove',e=>{if(RM)return;const r=tilt.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;tin.style.transform=`rotateY(${(x-.5)*14}deg) rotateX(${(.5-y)*10}deg)`;tin.style.setProperty('--mx',x*100+'%');tin.style.setProperty('--my',y*100+'%')});
-tilt.addEventListener('pointerleave',()=>{tin.style.transform=''});
+/* real 3D turntable: 25 rendered frames, -36 to +36 degrees; the cursor turns the bottle */
+const TURN=tilt.dataset.turn==='1';const timg=tin.querySelector('img'),TN=25,tframes=[];let tcur=12,thover=false,tdir=1,tloaded=false;
+const tsrc=i=>`turn/turn-${String(i).padStart(2,'0')}.jpg`;
+const tload=()=>{if(tloaded)return;tloaded=true;for(let i=0;i<TN;i++){const im=new Image();im.src=tsrc(i);tframes.push(im)}};
+const tshow=i=>{i=Math.max(0,Math.min(TN-1,Math.round(i)));if(i!==tcur){tcur=i;timg.src=tsrc(i)}};
+if(TURN)new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)tload()}),{rootMargin:'300px'}).observe(tilt);
+tilt.addEventListener('pointermove',e=>{if(RM)return;thover=true;const r=tilt.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;if(TURN){tshow((1-x)*(TN-1));tin.style.transform=`rotateX(${(.5-y)*6}deg)`}else tin.style.transform=`rotateY(${(x-.5)*14}deg) rotateX(${(.5-y)*10}deg)`;tin.style.setProperty('--mx',x*100+'%');tin.style.setProperty('--my',y*100+'%')});
+tilt.addEventListener('pointerleave',()=>{thover=false;tin.style.transform=''});
+if(!RM)setInterval(()=>{if(thover||!tloaded)return;let n=tcur+tdir;if(n<=0||n>=TN-1)tdir=-tdir;tshow(n)},140);
 /* voice demo */
 demoRuns['d-voice']=(()=>{
   const st=document.getElementById('d-voice'),langs=[...st.querySelectorAll('.langs span')],sls=[...st.querySelectorAll('.sl i')],
