@@ -103,6 +103,137 @@ footer{border-top:1px solid var(--line);padding:30px 0 44px;color:var(--mut);fon
 footer nav{display:flex;flex-wrap:wrap;gap:20px}
 footer a{text-decoration:none}footer nav{align-items:center}.yt{display:inline-flex;align-items:center;gap:7px;color:var(--fg)}footer a:hover{color:var(--fg)}
 
+/* live demos */
+.demos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.demo{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.demo h3{font-size:18px}
+.demo p.d{color:var(--mut);font-size:14.5px;line-height:1.55}
+.stage{background:#0f0e0c;border:1px solid var(--line);border-radius:14px;padding:38px 14px 14px;height:280px;overflow:hidden;position:relative;font-size:13.5px}
+.tag{position:absolute;top:10px;right:10px;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);background:#1c1916;border:1px solid var(--line);padding:2px 8px;border-radius:99px}
+/* comment to DM */
+.post{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.post .pic{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#f58214,#ffb83c)}
+.post b{font-size:13px}.post span{color:var(--mut);font-size:12px;display:block}
+.cmt,.dm,.msg{opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.cmt.on,.dm.on,.msg.on{opacity:1;transform:none}
+.cmt{background:#1c1916;border-radius:10px;padding:7px 10px;margin-top:6px;width:fit-content}
+.cmt i{font-style:normal;color:var(--gold);font-weight:600}
+.sent{display:inline-block;margin-top:8px;font-size:11.5px;color:#7ad19b;opacity:0;transition:opacity .3s}.sent.on{opacity:1}
+.dm{margin-top:10px;background:#2a1f12;border:1px solid #4a3418;border-radius:12px;padding:9px 11px;font-size:13px}
+.dm u{color:var(--gold);text-decoration:none;font-weight:600}
+/* whatsapp */
+.wa{display:flex;flex-direction:column;justify-content:flex-end;gap:7px;height:100%}
+.wa .msg{display:none;max-width:82%;padding:7px 10px;border-radius:10px;font-size:13px;line-height:1.45;opacity:1;transform:none;flex:none}
+.wa .msg.on{display:block;animation:pop .35s ease}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}}
+.msg.in{background:#1f2c33;align-self:flex-start}
+.msg.out{background:#0b5c4a;align-self:flex-end}
+.msg.prod{background:#1f2c33;align-self:flex-end;gap:8px;align-items:center}
+.wa .msg.prod.on{display:flex}
+.msg.prod .th{width:34px;height:34px;border-radius:7px;background:linear-gradient(135deg,#b4431c,#f58214);flex:none}
+.typing{align-self:flex-end;display:none;gap:3px;padding:8px 10px;background:#0b5c4a;border-radius:10px}
+.typing.on{display:flex}
+.typing i{width:6px;height:6px;border-radius:50%;background:#cfe;opacity:.5;animation:blink 1s infinite}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes blink{50%{opacity:1}}
+/* pipeline */
+.pipe{display:flex;flex-direction:column;gap:9px}
+.ps{display:flex;align-items:center;gap:10px;color:var(--mut);transition:color .3s}
+.ps .dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:11px;flex:none;transition:all .3s}
+.ps.act{color:var(--fg)}.ps.act .dot{border-color:var(--or);box-shadow:0 0 0 4px rgba(245,130,20,.18)}
+.ps.ok{color:var(--fg)}.ps.ok .dot{background:var(--or);border-color:var(--or);color:#111}
+.wave{display:flex;gap:2px;align-items:center;height:16px;margin-left:auto}
+.wave i{width:3px;background:var(--gold);border-radius:2px;height:4px}
+.ps.act .wave i{animation:wv .6s infinite alternate}
+.wave i:nth-child(2n){animation-delay:.15s}.wave i:nth-child(3n){animation-delay:.3s}
+@keyframes wv{to{height:16px}}
+.bar{height:6px;background:#1c1916;border-radius:99px;overflow:hidden;margin-top:6px}
+.bar b{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--or),var(--gold));transition:width .5s}
+.live{margin-top:6px;font-size:12.5px;color:#7ad19b;opacity:0;transition:opacity .3s}.live.on{opacity:1}
+/* calendar */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.cal .dh{font-size:10.5px;color:var(--mut);text-align:center;font-weight:600}
+.cal .slot{height:44px;border-radius:8px;background:#1c1916;display:flex;flex-direction:column;gap:3px;padding:4px;align-items:center;justify-content:flex-end}
+.chip{width:100%;height:9px;border-radius:4px;opacity:0;transform:scale(.6);transition:all .35s}
+.chip.on{opacity:1;transform:none}
+.c-fb{background:#3b6fd8}.c-ig{background:linear-gradient(90deg,#d6337a,#f58214)}.c-yt{background:#e33}
+.legend{display:flex;gap:12px;margin-top:12px;font-size:11.5px;color:var(--mut)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.count{margin-top:8px;font-weight:700;font-size:14px}
+/* report */
+.fun{display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.fr2 span{display:flex;justify-content:space-between;font-size:12.5px;color:var(--mut)}
+.fr2 b{color:var(--fg);font-size:15px;font-variant-numeric:tabular-nums}
+.fbar{height:12px;border-radius:6px;background:#1c1916;overflow:hidden;margin-top:4px}
+.fbar i{display:block;height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,var(--or),var(--gold));transition:width 1.2s ease}
+/* monitor */
+.mon{display:flex;flex-direction:column;gap:8px}
+.job{display:flex;justify-content:space-between;gap:10px;align-items:center;background:#1c1916;border-radius:9px;padding:8px 10px}
+.job span{font-size:12.5px}
+.st{font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap;transition:all .3s}
+.st.ok{background:#173524;color:#7ad19b}.st.run{background:#3a2a10;color:var(--gold)}.st.bad{background:#3a1715;color:#f08a82}
+.fixnote{font-size:12px;color:var(--mut);margin-top:4px;min-height:18px}
+/* 3d work */
+.w3{display:grid;grid-template-columns:1fr 1.6fr;gap:18px;margin-top:44px;align-items:stretch}
+.w3 figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.w3 img,.w3 video{width:100%;display:block;object-fit:cover;flex:1;min-height:0;background:#000}
+.w3 .s1 img{aspect-ratio:4/5}
+.w3 .s2 video{aspect-ratio:16/9}
+.w3 figcaption{padding:14px 18px;font-size:14.5px;color:var(--mut)}
+.w3 figcaption b{color:var(--fg);display:block;font-size:16px;margin-bottom:2px}
+/* serum: tilt, float, light sweep */
+.tilt{position:relative;flex:1;perspective:900px;background:radial-gradient(circle at 50% 40%,#3a2a1a,#141210 70%);overflow:hidden}
+.tilt-in{position:relative;height:100%;transform-style:preserve-3d;transition:transform .25s ease-out;animation:floaty 6s ease-in-out infinite}
+.tilt-in img{height:100%;aspect-ratio:auto!important;transform:scale(1.04)}
+.sheen{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at var(--mx,50%) var(--my,30%),rgba(255,236,200,.28),transparent 45%);mix-blend-mode:screen}
+.sweep{position:absolute;inset:-20%;pointer-events:none;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.22) 50%,transparent 60%);transform:translateX(-100%);animation:sweep 5.5s ease-in-out infinite}
+@keyframes sweep{0%,55%{transform:translateX(-100%)}85%,100%{transform:translateX(100%)}}
+@keyframes floaty{50%{translate:0 -8px}}
+.fchip{position:absolute;font-size:12px;font-weight:700;color:#120a02;background:var(--gold);padding:5px 11px;border-radius:99px;box-shadow:0 8px 20px -8px rgba(0,0,0,.6);opacity:0;animation:chip 9s infinite}
+.fchip.c1{top:16%;left:6%}.fchip.c2{top:44%;right:6%;animation-delay:3s}.fchip.c3{bottom:14%;left:8%;animation-delay:6s}
+@keyframes chip{0%{opacity:0;transform:translateY(8px)}6%,28%{opacity:1;transform:none}34%,100%{opacity:0;transform:translateY(-6px)}}
+/* flyover: graded, HUD */
+.fly{position:relative;flex:1;overflow:hidden;background:#000}
+.fly video{height:100%;filter:contrast(1.14) saturate(1.3) brightness(1.04);transform:scale(1.03)}
+.fly:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,170,90,.12),transparent 35%,transparent 65%,rgba(0,0,0,.55)),radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.45))}
+.hud{position:absolute;inset:0;z-index:1;pointer-events:none;font:600 11.5px/1 "Inter",sans-serif;letter-spacing:.08em;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.hud-tl{position:absolute;top:14px;left:16px}
+.rec{color:#ff5a3c;animation:blink 1.2s infinite}
+.hud-tr{position:absolute;top:14px;right:16px;font-variant-numeric:tabular-nums}
+.hud-b{position:absolute;left:16px;right:16px;bottom:14px;display:flex;align-items:center;gap:10px}
+.route{flex:1;height:3px;background:rgba(255,255,255,.3);border-radius:2px;position:relative}
+.route i{position:absolute;top:50%;left:0;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;border-radius:50%;background:var(--or);box-shadow:0 0 0 4px rgba(245,130,20,.3)}
+@media (prefers-reduced-motion:reduce){.tilt-in,.sweep,.fchip{animation:none}.fchip{opacity:1}}
+/* voice demo */
+.demo.wide{grid-column:1/-1}
+.vstage{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px;height:auto;min-height:250px}
+.vdesign{display:grid;grid-template-columns:auto 1fr;gap:10px 14px;align-items:center;align-content:center}
+.vlab{font-size:12px;color:var(--mut);font-weight:600}
+.langs{display:flex;gap:6px;flex-wrap:wrap}
+.langs span{font-size:12.5px;padding:4px 10px;border-radius:99px;background:#1c1916;border:1px solid var(--line);transition:all .3s}
+.langs span.on{background:var(--or);border-color:var(--or);color:#120a02;font-weight:700}
+.sl{height:6px;background:#1c1916;border-radius:99px;position:relative}
+.sl i{position:absolute;inset:0 auto 0 0;width:0;border-radius:99px;background:linear-gradient(90deg,var(--or),var(--gold));transition:width .9s ease}
+.sl i:after{content:"";position:absolute;right:-7px;top:50%;width:14px;height:14px;margin-top:-7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(245,130,20,.35)}
+.vready{grid-column:1/-1;font-size:12.5px;color:#7ad19b;opacity:0;transition:opacity .4s}.vready.on{opacity:1}
+.vplay{display:flex;flex-direction:column;justify-content:center;gap:14px;min-width:0}
+.vwave{display:flex;align-items:center;gap:3px;height:64px}
+.vwave i{flex:1;max-width:6px;min-width:2px;border-radius:3px;background:linear-gradient(180deg,var(--gold),var(--or));height:6%;transition:height .12s}
+.vcap{font-size:17px;font-weight:600;line-height:1.5;min-height:52px}
+.vcap span{color:var(--mut);transition:color .15s}.vcap span.on{color:var(--fg)}
+.vcap[dir="rtl"]{font-size:19px}
+.vbtn{align-self:flex-start;background:var(--or);color:#120a02;border:0;font:700 13.5px Inter,sans-serif;padding:9px 16px;border-radius:99px;cursor:pointer;transition:transform .15s,background .15s}
+.vbtn:hover{background:var(--or2);transform:translateY(-1px)}
+.vbtn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.vbtn.playing{background:#1c1916;color:var(--fg);border:1px solid var(--line)}
+.vcheck{font-size:12.5px;color:#7ad19b;opacity:0;transition:opacity .4s}.vcheck.on{opacity:1}
+@media (max-width:640px){.vstage{grid-template-columns:1fr}}
+.tilt{aspect-ratio:4/5}
+.fly{min-height:240px}
+@media (max-width:900px){.demos{grid-template-columns:1fr 1fr}.w3{grid-template-columns:1fr}.fly{aspect-ratio:16/9;min-height:0}}
+@media (max-width:640px){.demos{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.wave i,.typing i{animation:none}}
+
 .rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
@@ -129,6 +260,7 @@ footer a{text-decoration:none}footer nav{align-items:center}.yt{display:inline-f
   <a class="logo" href="#top"><i>B</i>BEAVER STUDIO</a>
   <nav>
     <a href="#services">Services</a>
+    <a href="#demos">See it work</a>
     <a href="#loop">How it works</a>
     <a href="#faq">FAQ</a>
     <a class="btn sm" href="mailto:cosmosbeaver@gmail.com?subject=Free%20consultation">Talk to us</a>
@@ -173,6 +305,142 @@ footer a{text-decoration:none}footer nav{align-items:center}.yt{display:inline-f
     <div class="card rv"><div class="ic">📥</div><h3>New leads straight to your phone</h3><p>Customers leave their details in a quick form inside Facebook or Instagram, and you get them on WhatsApp or in a sheet the same second.</p></div>
     <div class="card rv"><div class="ic">🗓️</div><h3>Pages that never go quiet</h3><p>Page setup, a content calendar and posts that go out on time on Facebook, Instagram and YouTube, so customers always find you active.</p></div>
     <div class="card rv"><div class="ic">📊</div><h3>A report you can read</h3><p>What you spent, how many saw it, how many messaged and how many ordered. Plain numbers, every month, no jargon.</p></div>
+    <div class="card rv"><div class="ic">📞</div><h3>Voice agents that answer calls</h3><p>A natural voice answers your phone and WhatsApp voice notes day and night, takes orders and bookings, and hands over to your team when needed.</p></div>
+    <div class="card rv"><div class="ic">🎛️</div><h3>Your brand's own voice</h3><p>We train a voice from your own recording, or design a new one that fits your brand, so every ad and every call sounds like you.</p></div>
+    <div class="card rv"><div class="ic">🌍</div><h3>One video, many languages</h3><p>Your ad dubbed into English, Urdu, Arabic and more, in the same voice, so every market hears the same brand.</p></div>
+  </div>
+</div></section>
+
+<section id="demos"><div class="w">
+  <span class="eyebrow">See it work</span>
+  <h2>The systems behind your sales, running live.</h2>
+  <p class="sub">These are the systems we build for you. Each one runs on its own every day, and a person checks it.</p>
+  <div class="demos">
+
+    <div class="demo">
+      <div class="stage" id="d-dm"><span class="tag">Instagram</span>
+        <div class="post"><div class="pic"></div><div><b>yourbrand</b><span>New serum, 30 ml</span></div></div>
+        <div class="cmt" data-s="1"><i>sara.k</i> price? 😍</div>
+        <div class="sent" data-s="2">✓ Reply sent to inbox in 3 seconds</div>
+        <div class="dm" data-s="3">Hi Sara! It's <b>$18</b> with free delivery this week. Order here: <u>yourbrand.shop/serum</u></div>
+      </div>
+      <h3>Comments become orders</h3>
+      <p class="d">Every "price?" gets the price and an order link in the buyer's inbox, in seconds, even at 3am.</p>
+    </div>
+
+    <div class="demo">
+      <div class="stage" id="d-wa"><span class="tag">WhatsApp</span>
+        <div class="wa">
+          <div class="msg in" data-s="1">Do you have it in 50 ml?</div>
+          <div class="typing" data-t="2"><i></i><i></i><i></i></div>
+          <div class="msg out" data-s="3">Yes! 50 ml is $26. Shall I reserve one for you?</div>
+          <div class="msg prod" data-s="4"><div class="th"></div><div>Glow Serum 50 ml<br><b>$26</b></div></div>
+          <div class="msg in" data-s="5">Yes please</div>
+          <div class="msg out" data-s="6">Order #1042 confirmed ✓ Arrives Thursday.</div>
+        </div>
+      </div>
+      <h3>WhatsApp that takes orders</h3>
+      <p class="d">Instant answers, products inside the chat, and the order confirmed without anyone on your team typing.</p>
+    </div>
+
+    <div class="demo">
+      <div class="stage" id="d-pipe"><span class="tag">Video</span>
+        <div class="pipe">
+          <div class="ps" data-s="1"><span class="dot">1</span>Script approved</div>
+          <div class="ps" data-s="2"><span class="dot">2</span>Voice recorded<span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+          <div class="ps" data-s="3"><span class="dot">3</span>Scenes created</div>
+          <div class="ps" data-s="4"><span class="dot">4</span>Every frame checked</div>
+          <div class="ps" data-s="5"><span class="dot">5</span>Captions and sound mixed</div>
+          <div class="bar"><b></b></div>
+          <div class="live">● Live on Instagram, Facebook and YouTube</div>
+        </div>
+      </div>
+      <h3>From script to posted ad</h3>
+      <p class="d">One brief in, a finished ad out, checked frame by frame and posted to every channel.</p>
+    </div>
+
+    <div class="demo">
+      <div class="stage" id="d-cal"><span class="tag">Schedule</span>
+        <div class="cal">
+          <div class="dh">Mon</div><div class="dh">Tue</div><div class="dh">Wed</div><div class="dh">Thu</div><div class="dh">Fri</div><div class="dh">Sat</div><div class="dh">Sun</div>
+        </div>
+        <div class="legend"><span><i class="c-fb"></i>Facebook</span><span><i class="c-ig"></i>Instagram</span><span><i class="c-yt"></i>YouTube</span></div>
+        <div class="count"><span id="calN">0</span> posts scheduled this week</div>
+      </div>
+      <h3>Pages that never go quiet</h3>
+      <p class="d">A full week of posts planned and queued across every channel, going out on time without anyone pressing publish.</p>
+    </div>
+
+    <div class="demo">
+      <div class="stage" id="d-rep"><span class="tag">Example report</span>
+        <div class="fun">
+          <div class="fr2"><span>People reached <b data-n="48200">0</b></span><div class="fbar"><i data-w="100"></i></div></div>
+          <div class="fr2"><span>Messages <b data-n="1310">0</b></span><div class="fbar"><i data-w="46"></i></div></div>
+          <div class="fr2"><span>Orders <b data-n="212">0</b></span><div class="fbar"><i data-w="22"></i></div></div>
+          <div class="fr2"><span>Cost per order <b data-n="2.10" data-d="2" data-p="$">0</b></span></div>
+        </div>
+      </div>
+      <h3>A report you can read</h3>
+      <p class="d">What you spent and what it brought back, from first view to final order. Example numbers shown.</p>
+    </div>
+
+    <div class="demo">
+      <div class="stage" id="d-mon"><span class="tag">Watched daily</span>
+        <div class="mon">
+          <div class="job"><span>Post today's clip</span><b class="st ok">done 09:00</b></div>
+          <div class="job"><span>Reply to new comments</span><b class="st run">running</b></div>
+          <div class="job"><span>Send weekly report</span><b class="st ok" id="monJob">done</b></div>
+          <div class="job"><span>Sync orders to sheet</span><b class="st ok">done 08:30</b></div>
+          <div class="fixnote" id="monNote"></div>
+        </div>
+      </div>
+      <h3>Automations a person watches</h3>
+      <p class="d">If a job stops, we see it, fix the cause and run it again the same day. You get a short note, not a surprise.</p>
+    </div>
+
+    <div class="demo wide">
+      <div class="stage vstage" id="d-voice"><span class="tag">Brand voice</span>
+        <div class="vdesign">
+          <div class="vlab">Language</div>
+          <div class="langs"><span data-l="0">English</span><span data-l="1">اردو</span><span data-l="2">العربية</span></div>
+          <div class="vlab">Warmth</div><div class="sl"><i data-v="78"></i></div>
+          <div class="vlab">Pace</div><div class="sl"><i data-v="45"></i></div>
+          <div class="vlab">Depth</div><div class="sl"><i data-v="64"></i></div>
+          <div class="vready" id="vready">✓ Voice ready · same voice in every video</div>
+        </div>
+        <div class="vplay">
+          <button class="vbtn" id="vbtn" type="button">🔊 Tap to hear the voice</button>
+          <div class="vwave" id="vwave"></div>
+          <p class="vcap" id="vcap"></p>
+          <div class="vcheck" id="vcheck">✓ Every word checked for pronunciation</div>
+        </div>
+      </div>
+      <h3>A voice made for your brand</h3>
+      <p class="d">We design a voice that fits your brand, in the languages your buyers speak, and use it in every video so you always sound the same. Every line is checked before it goes out.</p>
+    </div>
+
+  </div>
+</div></section>
+
+<section class="alt"><div class="w">
+  <span class="eyebrow">3D</span>
+  <h2>Product shots and scenes, built in 3D.</h2>
+  <p class="sub">No studio, no photo shoot. Any angle, any light, any background, and the same product in every ad.</p>
+  <div class="w3">
+    <figure class="s1"><div class="tilt" id="tilt">
+        <div class="tilt-in"><img src="work-serum.jpg" alt="3D render of an amber serum bottle with a dropper on a stone plinth" loading="lazy" width="720" height="1280"><span class="sheen"></span><span class="sweep"></span></div>
+        <span class="fchip c1">Any angle</span><span class="fchip c2">Studio light</span><span class="fchip c3">Any background</span>
+      </div>
+      <figcaption><b>Product shot</b>Concept render of a skincare serum, made in 3D, not photographed. Move your mouse over it.</figcaption></figure>
+    <figure class="s2"><div class="fly">
+        <video id="flyv" src="work-flyover.mp4" poster="work-flyover.jpg" autoplay muted loop playsinline preload="none"></video>
+        <div class="hud">
+          <div class="hud-tl"><span class="rec">●</span> REAL TERRAIN</div>
+          <div class="hud-tr" id="flyc">35.920° N &nbsp;74.310° E</div>
+          <div class="hud-b"><span>Gilgit</span><div class="route"><i id="flyd"></i></div><span>Bunji</span></div>
+        </div>
+      </div>
+      <figcaption><b>Real landscape flyover</b>Mountains in northern Pakistan, built from real elevation and satellite data.</figcaption></figure>
   </div>
 </div></section>
 
@@ -208,6 +476,8 @@ footer a{text-decoration:none}footer nav{align-items:center}.yt{display:inline-f
   <div class="faq">
     <details><summary>Do I have to take every service?</summary><p>No. Many clients start with one video ad, then add ads management or WhatsApp automation once they see results.</p></details>
     <details><summary>What do you need to make a video ad?</summary><p>Product photos, the price, and anything you want said: an offer, delivery info, your brand name. We plan the rest with you.</p></details>
+    <details><summary>Can you make a voice that sounds like me or my brand?</summary><p>Yes. With your permission, we train a voice from a clean recording of you or your spokesperson, or design a new voice to fit your brand. Only you can use it, and it stays in your name.</p></details>
+    <details><summary>What can a voice agent do on my calls?</summary><p>Answer common questions, give prices, take orders and bookings, and pass the call or chat to your team when a person is needed. You choose what it may and may not say.</p></details>
     <details><summary>Will the voice sound robotic?</summary><p>No. We choose natural, human-sounding narrators in English, Urdu, Arabic and other languages, and check every line before delivery.</p></details>
     <details><summary>Do you work with businesses outside Pakistan?</summary><p>Yes. We work remotely with brands anywhere, and make ads in the language your customers speak.</p></details>
     <details><summary>How does the WhatsApp automation work?</summary><p>We connect your business number to the official WhatsApp Business Platform. Customers get instant answers, see your products, and can place an order in the chat. You can step in any time.</p></details>
@@ -241,6 +511,120 @@ b.onclick=()=>{v.muted=!v.muted;if(!v.muted){v.currentTime=0;v.play()}b.textCont
 const h=document.querySelector('header');addEventListener('scroll',()=>h.classList.toggle('s',scrollY>8),{passive:true});
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* live demos: each plays when visible, then loops */
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const wait=ms=>new Promise(r=>setTimeout(r,RM?0:ms));
+function seq(stage,steps,gap,hold){
+  const els=[...stage.querySelectorAll('[data-s],[data-t]')];
+  const run=async()=>{
+    els.forEach(e=>e.classList.remove('on','act','ok'));
+    for(let s=1;s<=steps;s++){
+      await wait(gap);
+      els.forEach(e=>{
+        if(e.dataset.s==s) e.classList.add('on');
+        if(e.dataset.t==s){e.classList.add('on');}
+        if(e.dataset.t && +e.dataset.t<s) e.classList.remove('on');
+      });
+    }
+    await wait(hold); if(!RM) run();
+  };
+  return run;
+}
+const demoRuns={
+  'd-dm':seq(document.getElementById('d-dm'),3,1100,3500),
+  'd-wa':seq(document.getElementById('d-wa'),6,1000,3500),
+  'd-pipe':async function run(){
+    const st=document.getElementById('d-pipe'),ps=[...st.querySelectorAll('.ps')],bar=st.querySelector('.bar b'),live=st.querySelector('.live');
+    ps.forEach(p=>p.className='ps');bar.style.width='0';live.classList.remove('on');
+    for(let i=0;i<ps.length;i++){ps[i].classList.add('act');await wait(i==1?1600:900);ps[i].classList.replace('act','ok');ps[i].querySelector('.dot').textContent='✓';bar.style.width=((i+1)/ps.length*100)+'%';}
+    live.classList.add('on');await wait(3500);
+    ps.forEach((p,i)=>p.querySelector('.dot').textContent=i+1);
+    if(!RM) run();
+  },
+  'd-cal':async function run(){
+    const cal=document.querySelector('#d-cal .cal');cal.querySelectorAll('.slot').forEach(s=>s.remove());
+    const plan=[['fb','ig'],['yt'],['ig','fb'],['ig'],['fb','ig','yt'],['ig'],['yt','fb']];
+    const chips=[];plan.forEach(day=>{const s=document.createElement('div');s.className='slot';day.forEach(p=>{const c=document.createElement('i');c.className='chip c-'+p;s.appendChild(c);chips.push(c)});cal.appendChild(s)});
+    const n=document.getElementById('calN');n.textContent=0;
+    for(let i=0;i<chips.length;i++){await wait(350);chips[i].classList.add('on');n.textContent=i+1;}
+    await wait(3500);if(!RM) run();
+  },
+  'd-rep':async function run(){
+    const st=document.getElementById('d-rep');
+    st.querySelectorAll('.fbar i').forEach(b=>b.style.width='0');
+    const nums=[...st.querySelectorAll('b[data-n]')];
+    await wait(300);
+    st.querySelectorAll('.fbar i').forEach(b=>b.style.width=b.dataset.w+'%');
+    const t0=performance.now(),dur=RM?0:1400;
+    await new Promise(res=>{const f=t=>{const k=dur?Math.min(1,(t-t0)/dur):1;nums.forEach(b=>{const v=+b.dataset.n*k,d=+(b.dataset.d||0);b.textContent=(b.dataset.p||'')+v.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d})});k<1?requestAnimationFrame(f):res()};requestAnimationFrame(f)});
+    await wait(5000);if(!RM) run();
+  },
+  'd-mon':async function run(){
+    const j=document.getElementById('monJob'),n=document.getElementById('monNote');
+    j.className='st ok';j.textContent='done';n.textContent='';
+    await wait(1500);j.className='st bad';j.textContent='stopped';n.textContent='Login expired overnight.';
+    await wait(1800);j.className='st run';j.textContent='fixing';n.textContent='Login renewed. Running again.';
+    await wait(1600);j.className='st ok';j.textContent='done 10:12';n.textContent='Fixed and noted in today\'s summary.';
+    await wait(3500);if(!RM) run();
+  }
+};
+/* serum tilt follows the mouse */
+const tilt=document.getElementById('tilt'),tin=tilt.querySelector('.tilt-in');
+tilt.addEventListener('pointermove',e=>{if(RM)return;const r=tilt.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;tin.style.transform=`rotateY(${(x-.5)*14}deg) rotateX(${(.5-y)*10}deg)`;tin.style.setProperty('--mx',x*100+'%');tin.style.setProperty('--my',y*100+'%')});
+tilt.addEventListener('pointerleave',()=>{tin.style.transform=''});
+/* flyover HUD follows the video: Gilgit to Bunji */
+const fv=document.getElementById('flyv'),fc=document.getElementById('flyc'),fd=document.getElementById('flyd');
+const A=[35.920,74.310],B=[35.640,74.630];
+const hud=()=>{const k=fv.duration?fv.currentTime/fv.duration:0;fd.style.left=(k*100)+'%';fc.textContent=`${(A[0]+(B[0]-A[0])*k).toFixed(3)}° N  ${(A[1]+(B[1]-A[1])*k).toFixed(3)}° E`;requestAnimationFrame(hud)};
+requestAnimationFrame(hud);
+/* voice demo */
+demoRuns['d-voice']=(()=>{
+  const st=document.getElementById('d-voice'),langs=[...st.querySelectorAll('.langs span')],sls=[...st.querySelectorAll('.sl i')],
+    ready=document.getElementById('vready'),wave=document.getElementById('vwave'),cap=document.getElementById('vcap'),chk=document.getElementById('vcheck');
+  for(let i=0;i<48;i++)wave.appendChild(document.createElement('i'));
+  const bars=[...wave.children];
+  /* real voice lines, word start times in seconds from the voice engine's own alignment */
+  const lines=[
+    {src:'voice-en.mp3',rtl:false,l:0,w:[["Fresh,",0],["glowing",.72],["skin",1.2],["in",1.6],["seven",1.92],["days.",2.24],["Order",3.24],["today,",3.44],["delivered",4.16],["tomorrow.",4.64]]},
+    {src:'voice-ur.mp3',rtl:true,l:1,w:[["سات",0],["دن",.4],["میں",.64],["خوبصورت",.88],["جلد۔",1.6],["آج",2.32],["آرڈر",2.52],["کریں،",2.8],["کل",3.36],["آپ",3.56],["کے",3.72],["گھر۔",3.84]]}
+  ];
+  const btn=document.getElementById('vbtn'),au=new Audio();au.preload='none';
+  let speaking=false,sound=false,gen=0;
+  const anim=()=>{bars.forEach((b,i)=>{b.style.height=speaking?(15+Math.abs(Math.sin(Date.now()/140+i*.55))*70*Math.random()+10)+'%':'6%'});requestAnimationFrame(anim)};
+  if(!RM)requestAnimationFrame(anim);
+  const show=ln=>{langs.forEach((s,i)=>s.classList.toggle('on',i===ln.l));cap.dir=ln.rtl?'rtl':'ltr';cap.innerHTML=ln.w.map(x=>`<span>${x[0]}</span>`).join(' ');return [...cap.children]};
+  const playLine=(ln,my)=>new Promise(res=>{
+    const ws=show(ln);au.src=ln.src;speaking=true;
+    const tick=()=>{if(my!==gen){speaking=false;return res()}ln.w.forEach((x,i)=>ws[i].classList.toggle('on',au.currentTime>=x[1]));if(!au.ended)requestAnimationFrame(tick)};
+    au.onended=()=>{speaking=false;ws.forEach(w=>w.classList.add('on'));res()};
+    au.onerror=()=>{speaking=false;res()};
+    au.play().then(()=>requestAnimationFrame(tick)).catch(()=>{speaking=false;res()});
+  });
+  const silentLine=async(ln,my)=>{const ws=show(ln);speaking=true;for(let i=0;i<ws.length;i++){const next=ln.w[i+1]?ln.w[i+1][1]:ln.w[i][1]+.5;ws[i].classList.add('on');await wait((next-ln.w[i][1])*1000);if(my!==gen){speaking=false;return}}speaking=false};
+  async function run(){
+    const my=++gen;
+    langs.forEach(s=>s.classList.remove('on'));sls.forEach(s=>s.style.width='0');ready.classList.remove('on');chk.classList.remove('on');cap.textContent='';
+    if(!sound){for(const s of langs){await wait(350);if(my!==gen)return;s.classList.add('on');}
+      await wait(300);sls.forEach(s=>s.style.width=s.dataset.v+'%');await wait(1100);if(my!==gen)return;}
+    else sls.forEach(s=>s.style.width=s.dataset.v+'%');
+    ready.classList.add('on');
+    for(const ln of lines){
+      if(sound)await playLine(ln,my);else await silentLine(ln,my);
+      if(my!==gen)return;await wait(700);if(my!==gen)return;
+    }
+    chk.classList.add('on');langs.forEach(s=>s.classList.add('on'));
+    if(sound){sound=false;btn.classList.remove('playing');btn.textContent='🔊 Play again';return}
+    await wait(3500);if(my===gen&&!RM)run();
+  }
+  btn.addEventListener('click',()=>{
+    if(btn.classList.contains('playing')){au.pause();sound=false;gen++;speaking=false;btn.classList.remove('playing');btn.textContent='🔊 Tap to hear the voice';run();return}
+    sound=true;btn.classList.add('playing');btn.textContent='■ Stop';run();
+  });
+  return run;
+})();
+const dio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){demoRuns[e.target.id]();dio.unobserve(e.target)}}),{threshold:.35});
+Object.keys(demoRuns).forEach(id=>dio.observe(document.getElementById(id)));
 </script>
 </body>
 </html>
