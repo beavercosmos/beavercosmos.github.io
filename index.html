@@ -194,8 +194,9 @@ footer a{text-decoration:none}footer nav{align-items:center}.yt{display:inline-f
 @keyframes chip{0%{opacity:0;transform:translateY(8px)}6%,28%{opacity:1;transform:none}34%,100%{opacity:0;transform:translateY(-6px)}}
 /* flyover: graded, HUD */
 .fly{position:relative;flex:1;overflow:hidden;background:#000}
-.fly video{height:100%;filter:contrast(1.14) saturate(1.3) brightness(1.04);transform:scale(1.03)}
-.fly:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,170,90,.12),transparent 35%,transparent 65%,rgba(0,0,0,.55)),radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.45))}
+.fly canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.fly:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 60%,rgba(0,0,0,.45))}
+.gnd{display:inline-block;margin-top:7px;color:var(--gold);font-variant-numeric:tabular-nums}
 .hud{position:absolute;inset:0;z-index:1;pointer-events:none;font:600 11.5px/1 "Inter",sans-serif;letter-spacing:.08em;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
 .hud-tl{position:absolute;top:14px;left:16px}
 .rec{color:#ff5a3c;animation:blink 1.2s infinite}
@@ -433,9 +434,9 @@ footer a{text-decoration:none}footer nav{align-items:center}.yt{display:inline-f
       </div>
       <figcaption><b>Product shot</b>Concept render of a skincare serum, made in 3D, not photographed. Move your mouse over it.</figcaption></figure>
     <figure class="s2"><div class="fly">
-        <video id="flyv" src="work-flyover.mp4" poster="work-flyover.jpg" autoplay muted loop playsinline preload="none"></video>
+        <canvas id="terr" aria-label="Animated flight over real mountain terrain from Gilgit to Bunji"></canvas>
         <div class="hud">
-          <div class="hud-tl"><span class="rec">●</span> REAL TERRAIN</div>
+          <div class="hud-tl"><span class="rec">●</span> REAL TERRAIN<br><span class="gnd" id="flyg">GROUND 1,480 m</span></div>
           <div class="hud-tr" id="flyc">35.920° N &nbsp;74.310° E</div>
           <div class="hud-b"><span>Gilgit</span><div class="route"><i id="flyd"></i></div><span>Bunji</span></div>
         </div>
@@ -573,11 +574,6 @@ const demoRuns={
 const tilt=document.getElementById('tilt'),tin=tilt.querySelector('.tilt-in');
 tilt.addEventListener('pointermove',e=>{if(RM)return;const r=tilt.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;tin.style.transform=`rotateY(${(x-.5)*14}deg) rotateX(${(.5-y)*10}deg)`;tin.style.setProperty('--mx',x*100+'%');tin.style.setProperty('--my',y*100+'%')});
 tilt.addEventListener('pointerleave',()=>{tin.style.transform=''});
-/* flyover HUD follows the video: Gilgit to Bunji */
-const fv=document.getElementById('flyv'),fc=document.getElementById('flyc'),fd=document.getElementById('flyd');
-const A=[35.920,74.310],B=[35.640,74.630];
-const hud=()=>{const k=fv.duration?fv.currentTime/fv.duration:0;fd.style.left=(k*100)+'%';fc.textContent=`${(A[0]+(B[0]-A[0])*k).toFixed(3)}° N  ${(A[1]+(B[1]-A[1])*k).toFixed(3)}° E`;requestAnimationFrame(hud)};
-requestAnimationFrame(hud);
 /* voice demo */
 demoRuns['d-voice']=(()=>{
   const st=document.getElementById('d-voice'),langs=[...st.querySelectorAll('.langs span')],sls=[...st.querySelectorAll('.sl i')],
@@ -627,5 +623,6 @@ demoRuns['d-voice']=(()=>{
 const dio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){demoRuns[e.target.id]();dio.unobserve(e.target)}}),{threshold:.35});
 Object.keys(demoRuns).forEach(id=>dio.observe(document.getElementById(id)));
 </script>
+<script src="terrain.js" defer></script>
 </body>
 </html>
